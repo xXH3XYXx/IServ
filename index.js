@@ -17,14 +17,17 @@ client.on('ready', () => {
     console.log(`${client.user.tag} Has Logged in`);  // logging to console when Boty has started 
 });
 
+const isValidCMD = (message, cmdName) => message.content.toLocaleLowerCase().startsWith(PREFIX + cmdName);
+const roll = () => Math.floor(Math.random() * 6) + 1 - 1 + 1;
 
 client.on('messageCreate', (message) => {
-    if(!message.content.startsWith(PREFIX)) return;
-    if (message.content.startsWith(`${PREFIX}ping`)) {
-        message.reply('hello').catch(err => {
-            throw err
-        }).catch(err => console.log(err));
+    if(message.author.bot) return;
+    if(isValidCMD(message, 'hello')) {
+        message.reply('Hello!');
     };
+    if(isValidCMD(message, "rolldice")) {
+       message.reply("rolled a " + roll());
+    }
 });  // Client message event ping replay with pong Test function
    
 
