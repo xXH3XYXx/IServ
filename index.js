@@ -10,7 +10,7 @@ dotenv.config();
 
 
 client.on('ready', () => {
-    console.log('The Bot Is Ready', discord.User.name);
+    console.log(`${client.user.tag} Has Logged in`);
 });
 
 
