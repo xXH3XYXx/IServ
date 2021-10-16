@@ -17,7 +17,7 @@ client.on('ready', () => {
 
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
-    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "Hello")) {
+    if (message.content.toLocaleLowerCase().startsWith(PREFIX + "hello")) {
         message.reply("hello");
     };
 });  // Client message event ping replay with pong Test function
