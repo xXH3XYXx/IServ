@@ -20,7 +20,7 @@ client.on('messageCreate', (message) => {
     if (message.content.toLocaleLowerCase().startsWith(PREFIX + "Hello")) {
         message.reply("hello");
     };
-};  // Client message event ping replay with pong Test function
+});  // Client message event ping replay with pong Test function
    
 
 client.login(process.env.TOKEN);
