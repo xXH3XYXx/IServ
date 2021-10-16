@@ -1,5 +1,6 @@
-const discord = require('discord.js'); // Importing Discord API
-const PREFIX = process.env.PREFIX; // Getting Prefix 
+const discord = require('discord.js');  // Importing Discord API
+
+  // Getting Prefix 
 const client = new discord.Client({ // Creating new DisCord Client 
     intents: [
         discord.Intents.FLAGS.GUILDS,
@@ -8,6 +9,8 @@ const client = new discord.Client({ // Creating new DisCord Client
 });
 const dotenv = require('dotenv'); // Importing Dotenv So we can use .env Files 
 dotenv.config();
+const PREFIX = process.env.PREFIX; 
+
 
 
 client.on('ready', () => {
@@ -16,10 +19,11 @@ client.on('ready', () => {
 
 
 client.on('messageCreate', (message) => {
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (message.content.toLocaleLowerCase(PREFIX + 'hello')) {
-        message.reply('hello');
+    if(!message.content.startsWith(PREFIX)) return;
+    if (message.content.startsWith(`${PREFIX}ping`)) {
+        message.reply('hello').catch(err => {
+            throw err
+        }).catch(err => console.log(err));
     };
 });  // Client message event ping replay with pong Test function
    
